@@ -1,0 +1,23 @@
+h1
+{
+	color: red;
+	font-size: 300%;
+	font-family: Arial, Verdana, sans-serif;
+	text-align: right;
+}
+footer
+{
+	color: gray;
+	font-size: 30px;
+	font-family: Arial, Verdana, sans-serif;
+	text-align: center;
+	
+}
+header
+{
+	color: olive;
+	font-size: 30px;
+	font-family: cursive;
+	text-align: center;
+	
+}

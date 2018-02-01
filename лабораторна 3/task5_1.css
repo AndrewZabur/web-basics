@@ -1,0 +1,13 @@
+span
+{
+	position: fixed;
+	width: 25%; 
+    	height: 1em;
+	font-size: 220%;
+	color: white;
+	top: 39%;
+    	left: 33%;
+	padding: 3%;
+   	background: red; 
+	text-align:center; 
+}

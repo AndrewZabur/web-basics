@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://bootswatch.com/4/mint/bootstrap.min.css">
+        
+    <title>
+      Форма реєстрації
+    </title>
+    <style type="text/css">
+     #form{
+              
+        border: 2px solid black;
+        background-clip: border-box; 
+        padding: 10px;
+        border-radius: 10px;
+        width: 400px;
+     }
+     input{
+       margin: 10px;
+       border-radius: 5px;
+       outline: none;
+     }  
+
+     #login, #email {
+
+        width: 90%;
+     }
+     #password, #password2 {
+        width: 41.5%;
+     }
+     #submit{
+
+          background-color: dodgerblue;
+          color: white;
+      }   
+    .correct {
+        border-color: yellowgreen;
+    }
+    
+    .mistake {
+        border-color: salmon;
+    }
+    
+    .help {
+       color: salmon;
+       font-size: 14px;
+    }
+      
+    </style>
+
+  </head>
+  <body>
+
+    
+  <div id="form">
+    <form>
+      <h3 align="center">Реєстрація</h3>
+      <label>Логін</label>
+      <br>
+      <input type="text" id="login" placeholder="  Логін">
+      <br>
+      <label>Електронна пошта</label>
+      <br>
+      <input type="text" id="email" placeholder="  Електронна пошта">
+      <br>
+      <label>Пароль</label>
+      <br>
+      <input type="password" id="password" placeholder="  Пароль">
+      <input type="password" id="password2" placeholder="  Пароль ще раз">
+      <br>
+      <input type="submit" id="submit" name="submit" value="Зареєструватися" onclick="check(event)">
+    </form>
+  </div>  
+
+    <script>
+        function check(event) {
+          $("p").remove(".help");
+         
+          if(/^\w{3,30}$/.test($("#login").val()))
+           {
+              $("#login").removeClass("mistake");
+              $("#login").addClass("correct");
+           }
+           else{
+            
+              if($("#login").val()==="" || /^\w{2}$/.test($("#login").val()))
+              {
+              $("#login").after("<p class = 'help'>Логін повинен складатися щонайменше з трьох символів!</p>");
+              }
+              else{
+                $("#login").after("<p class = 'help'>Логін може складатися лише з латинських літер, цифр та символу_!</p>");
+              }
+              $("#login").addClass("mistake");          
+           }
+
+           if(/^\w+@\w{2,15}\.\w{2,15}$/.test($("#email").val()))
+           {
+              $("#email").removeClass("mistake");
+              $("#email").addClass("correct");
+           }
+           else{
+              if($("#email").val()==="")
+              {
+                $("#email").after("<p class = 'help'>Введіть адресу електронної пошти!</p>"); 
+              }
+              else
+              {
+                $("#email").after("<p class = 'help'>Введіть коректну адресу електронної пошти!</p>");  
+              }
+              $("#email").addClass("mistake");  
+           }
+
+           
+           if(/^\w{6,30}$/.test($("#password").val()))
+           {
+              $("#password").removeClass("mistake");
+              $("#password").addClass("correct");
+              
+              if($("#password").val() === $("#password2").val())
+              {
+                $("#password2").removeClass("mistake");
+                $("#password2").addClass("correct");
+                
+              }
+              
+              else if($("#password2").val() === "")
+              {
+                $("#password").addClass("mistake");
+                $("#password2").after("<p class = 'help'>Повторно введіть пароль!</p>");
+              }
+              
+              else{
+                  $("#password").addClass("mistake");
+                  $("#password2").addClass("mistake");
+                  $("#password2").after("<p class = 'help'>Паролі не співпадають!</p>"); 
+              }
+           
+           }
+           else{
+              if(/^\w{5}$/.test($("#password").val()) || $("#password").val()==="")  
+              {
+                  $("#password2").addClass("mistake");
+                  $("#password2").after("<p class = 'help'>Пароль повинен складатися щонайменше з 6 символів!</p>");  
+              }
+              $("#password").addClass("mistake");
+              $("#password2").addClass("mistake");
+           }
+
+           event.preventDefault();
+        }
+    </script>
+   
+  </body>
+</html>

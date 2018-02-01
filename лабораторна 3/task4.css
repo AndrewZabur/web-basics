@@ -1,0 +1,18 @@
+.left
+{
+	float: left;
+	width: 33.3%; 
+	color: blue;
+}
+.right
+{
+	float: right;
+	width: 33.3%; 
+	color: green;
+}
+.center
+{
+	color: red;
+	display: inline-block;
+    width:33.3%;
+}

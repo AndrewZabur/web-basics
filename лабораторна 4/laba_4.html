@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			Табличка множення
+		</title>
+	</head>
+	<body>
+		<p id="rez"></p>	
+		<div>
+			<p id="start">Щоб розпочати тестування натисніть на кнопку 'наступне завдання'.</p>
+			<button onclick="next()">наступне завдання</button><br>
+			<p id="question"></p>
+			<input type="radio" name="test" id="q1" onchange="check()"><label id="answ1"></label><br>
+			<input type="radio" name="test" id="q2" onchange="check()"><label id="answ2"></label><br>
+			<input type="radio" name="test" id="q3" onchange="check()"><label id="answ3"></label><br>
+			<input type="radio" name="test" id="q4" onchange="check()"><label id="answ4"></label><br>
+			<p id="answer"></p>
+		</div>
+
+
+
+		<script type="text/javascript">
+			var number1, number2;
+			var answer1, answer2, answer3, answer4;
+			var rand;
+			var count = 0, count_rght = 0, rezult;
+			function next(){
+				document.getElementById('start').innerHTML = "";
+				document.getElementById('q1').disabled = false;
+				document.getElementById('q2').disabled = false;
+				document.getElementById('q3').disabled = false;
+				document.getElementById('q4').disabled = false;
+				document.getElementById('answer').innerHTML = "";
+				document.getElementById('q1').checked = false;
+				document.getElementById('q2').checked = false;
+				document.getElementById('q3').checked = false;
+				document.getElementById('q4').checked = false;
+				number1 = Math.floor( Math.random() * (10 - 1 + 1) ) + 1;
+				number2 = Math.floor( Math.random() * (10 - 1 + 1) ) + 1;
+				document.getElementById('question').innerHTML = number1 + '×' + number2 + ' ='; 
+				answer1 = number1*number2;
+				answer2 = answer1*2;
+				answer3 = answer1*3;
+				answer4 = answer1+11;
+				rand = Math.floor( Math.random() * (4 - 1 + 1) ) + 1;
+				if(rand == 1)
+				{
+					document.getElementById('answ1').innerHTML = answer1;
+					document.getElementById('answ2').innerHTML = answer2;
+					document.getElementById('answ3').innerHTML = answer3;
+					document.getElementById('answ4').innerHTML = answer4;
+				}
+				else if(rand == 2)
+				{
+					document.getElementById('answ1').innerHTML = answer2;
+					document.getElementById('answ2').innerHTML = answer1;
+					document.getElementById('answ3').innerHTML = answer3;
+					document.getElementById('answ4').innerHTML = answer4;
+				}
+				else if(rand == 3)
+				{
+					document.getElementById('answ1').innerHTML = answer3;
+					document.getElementById('answ2').innerHTML = answer2;
+					document.getElementById('answ3').innerHTML = answer1;
+					document.getElementById('answ4').innerHTML = answer4;
+				}
+				else if(rand == 4)
+				{
+					document.getElementById('answ1').innerHTML = answer4;
+					document.getElementById('answ2').innerHTML = answer2;
+					document.getElementById('answ3').innerHTML = answer3;
+					document.getElementById('answ4').innerHTML = answer1;
+				}
+
+			}
+
+			function check(){
+				
+
+				if(rand == 1)
+				{
+					document.getElementById('q1').value = answer1;
+					document.getElementById('q2').value = answer2;
+					document.getElementById('q3').value = answer3;
+					document.getElementById('q4').value = answer4;
+					if(document.getElementById('q1').checked)
+					{
+
+						document.getElementById('answer').innerHTML = "Правильно.";
+						count++;
+						count_rght++;
+					}
+					else
+					{
+						document.getElementById('answer').innerHTML = "Помилка, правильна відповідь «" + answer1 + "»";
+						count++;
+					}
+
+				}
+				else if(rand == 2)
+				{
+					document.getElementById('q1').value = answer2;
+					document.getElementById('q2').value = answer1;
+					document.getElementById('q3').value = answer3;
+					document.getElementById('q4').value = answer4;
+					if(document.getElementById('q2').checked)
+					{
+						document.getElementById('answer').innerHTML = "Правильно.";
+						count++;
+						count_rght++;
+					}
+					else
+					{
+						document.getElementById('answer').innerHTML = "Помилка, правильна відповідь «" + answer1 + "»";
+						count++;
+					}
+
+				}
+				else if(rand == 3)
+				{
+					document.getElementById('q1').value = answer3;
+					document.getElementById('q2').value = answer2;
+					document.getElementById('q3').value = answer1;
+					document.getElementById('q4').value = answer4;
+					if(document.getElementById('q3').checked)
+					{
+						document.getElementById('answer').innerHTML = "Правильно.";
+						count++;
+						count_rght++;
+					}
+					
+					else{
+						document.getElementById('answer').innerHTML = "Помилка, правильна відповідь «" + answer1 + "»";
+						count++;
+					}
+				}
+				else if(rand == 4)
+				{
+					document.getElementById('q1').value = answer4;
+					document.getElementById('q2').value = answer2;
+					document.getElementById('q3').value = answer3;
+					document.getElementById('q4').value = answer1;
+					if(document.getElementById('q4').checked){
+						document.getElementById('answer').innerHTML = "Правильно.";
+						count++;
+						count_rght++;
+					}
+					else{
+						document.getElementById('answer').innerHTML = "Помилка, правильна відповідь «" + answer1 + "»";
+						count++;
+					}
+				}
+				document.getElementById('q1').disabled = true;
+				document.getElementById('q2').disabled = true;
+				document.getElementById('q3').disabled = true;
+				document.getElementById('q4').disabled = true;
+				rezult = (count_rght * 100) / count;
+				document.getElementById("rez").innerHTML = "Загальний рахунок " + Math.floor(rezult)+ "%" + " (" + count_rght + " правильных відповідей з "+ count + ")";
+			}
+		</script>
+	</body>
+</html>

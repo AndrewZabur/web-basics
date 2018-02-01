@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	
+		<meta charset = "windows-1251">
+		<title>TASK 3</title>
+		<link rel="stylesheet"  href = "task3.css">
+    
+	</head>
+    
+	<body>
+     
+		<div id ="surname"> 
+        
+			<h1 id="ch" > Забурянний Андрій </h1> 
+			
+			<input type="color" id="text"> текст
+			<input type="color" id="background"> фон
+			<input type="color" id="shadow"> тінь <br><br>
+			
+			<button onclick="change_color()" class = "gray"> змінити </button> 
+		
+		</div>
+        
+		<script type="text/javascript"> 
+            function change_color()
+            { 
+                var style=document.getElementById("ch").style; 
+                style.color=document.getElementById("text").value; 
+                style.backgroundColor=document.getElementById("background").value; 
+                style.textShadow='5px 3px'+document.getElementById("shadow").value; 
+            } 
+        </script>
+        
+		<div id="change" >
+            <p>Зміна кольору!!</p>
+            <button onclick="blue()" class = "blue">Синій</button><br>
+			<button onclick="red()"  class = "red">Червоний</button><br>
+            <button onclick="olive()" class = "olive">Оливковий</button><br> 
+            
+       </div>
+        <script type="text/javascript"> 
+            function blue()
+			{
+               var style=document.getElementById("change").style; 
+               style.color='blue';
+            }
+            function red()
+			{
+               var style=document.getElementById("change").style; 
+               style.color= 'red';
+            } 
+            function olive()
+			{
+               var style=document.getElementById("change").style; 
+               style.color= 'olive';
+            }    
+        </script>
+		
+		
+
+		<div class="dropdown" style="float: left;">
+			<button class = "label">TABLE</button>
+			<div class="content" style="left: 0;">
+				<table>
+					<tr>
+						<td>element(1,1)</td>
+						<td>element(1,2)</td>
+					</tr>
+					<tr>
+						<td>element(2,1)</td>
+						<td>element(2,2)</td>
+					</tr>
+					<tr>
+						<td>element(3,1)</td>
+						<td>element(3,2)</td>
+					</tr>
+				</table>
+			</div>
+			<div >asgdsgdhgs</div>
+		</div>
+       	
+</html>

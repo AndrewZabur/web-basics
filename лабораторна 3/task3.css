@@ -1,0 +1,67 @@
+#surname
+{
+    position: fixed;
+    right:7%;
+}
+#change
+{
+    position: fixed;
+	top: 200px; 
+    left: 200px;
+    font-style: arial;
+    font-weight: bold;
+    font-size: 50px;
+}
+.gray 
+{
+    background: gray; 
+    color: white; 
+    font-size: 9pt; 
+}
+.blue 
+{
+    background: blue; 
+    color: white; 
+    font-size: 9pt;
+}
+.red 
+{
+    background: red; 
+    color: white; 
+    font-size: 9pt; 
+}
+.olive 
+{
+    background: olive; 
+    color: white; 
+    font-size: 9pt; 
+}
+.label
+{
+    background-color: gray;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+.dropdown 
+{
+    position: absolute;
+    display: inline-block;
+	
+}
+
+.content
+{
+	display: none;
+	position: relative;
+	background-color: lightblue;	
+	min-width: 170px;
+    
+}
+
+.dropdown:hover .content 
+{
+    display: block;
+}
